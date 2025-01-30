@@ -13,15 +13,25 @@ public class PlaceObjectsOnPlane : MonoBehaviour
 
     [SerializeField]
     [Tooltip("Instantiates this prefab on a plane at the touch location.")]
-    GameObject m_PlacedPrefab;
+    GameObject m_PlacedTurret;
+    [SerializeField]
+    GameObject m_PlacedRocket;
 
     /// <summary>
     /// The prefab to instantiate on touch.
     /// </summary>
-    public GameObject placedPrefab
+    public GameObject placedPrefabTurret
     {
-        get { return m_PlacedPrefab; }
-        set { m_PlacedPrefab = value; }
+        get { return m_PlacedTurret; }
+        set { m_PlacedTurret = value; }
+    }
+    /// <summary>
+    /// The prefab to instantiate on touch.
+    /// </summary>
+    public GameObject placedPrefabRocket
+    {
+        get { return m_PlacedRocket; }
+        set { m_PlacedRocket = value; }
     }
 
     /// <summary>
@@ -71,14 +81,25 @@ public class PlaceObjectsOnPlane : MonoBehaviour
 
                     if (m_NumberOfPlacedObjects < m_MaxNumberOfObjectsToPlace)
                     {
+                        Debug.Log("Turret and planes are placed!!!");
                         Spawner.Instance.setTurretPosition(hitPose.position);
                         Spawner.Instance.spawnRedPlane();
                         Spawner.Instance.spawnGreenPlane();
                         Spawner.Instance.spawnRainbowPlane();
 
-                        spawnedObject = Instantiate(m_PlacedPrefab, hitPose.position, hitPose.rotation);
+                        spawnedObject = Instantiate(m_PlacedTurret, hitPose.position, hitPose.rotation);
 
                         shootScript.GetComponent<Shoot>().turret = spawnedObject;
+
+                        m_NumberOfPlacedObjects++;
+                    }
+                    else if (m_NumberOfPlacedObjects >= m_MaxNumberOfObjectsToPlace)
+                    {
+                        Debug.Log("Rocket is placed!!!");
+
+                        Spawner.Instance.setRocketPosition(hitPose.position);
+
+                        spawnedObject = Instantiate(m_PlacedRocket, hitPose.position, hitPose.rotation);
 
                         m_NumberOfPlacedObjects++;
                     }
