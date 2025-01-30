@@ -15,6 +15,8 @@ public class Spawner : MonoBehaviour
 
     //Turret position
     private Vector3 turretPosition;
+    //Rocket position
+    private Vector3 rocketPosition;
 
     /// <summary>
     /// Create the singleton instance before starting the game
@@ -38,6 +40,13 @@ public class Spawner : MonoBehaviour
         turretPosition = p_turretPosition;
     }
 
+    public void setRocketPosition(Vector3 p_RocketPosition)
+    {
+        p_RocketPosition.x += 2.0f;
+
+        rocketPosition = p_RocketPosition;
+    }
+
     public void spawnPlane(GameObject plane)
     {
         //Create an empty gameobject to work with transform
@@ -57,6 +66,13 @@ public class Spawner : MonoBehaviour
 
         //Instance the plane at the spawn point
         Instantiate(plane, planeSpawnPoint.transform.position, Quaternion.identity);
+    }
+
+    //Spawn the rocket at the rocket position
+    public void spawnRocket(GameObject rocket)
+    {
+        //Instance the rocket at the rocket position
+        Instantiate(rocket, rocketPosition, Quaternion.identity);
     }
 
     public void spawnRedPlane()
