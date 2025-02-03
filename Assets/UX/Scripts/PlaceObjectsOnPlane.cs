@@ -75,6 +75,7 @@ public class PlaceObjectsOnPlane : MonoBehaviour
                         Spawner.Instance.spawnRedPlane();
                         Spawner.Instance.spawnGreenPlane();
                         Spawner.Instance.spawnRainbowPlane();
+                        Spawner.Instance.spawnTurtleShell();
 
                         spawnedObject = Instantiate(m_PlacedPrefab, hitPose.position, hitPose.rotation);
 

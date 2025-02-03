@@ -7,6 +7,7 @@ TagManager:
   - RedPlane
   - GreenPlane
   - RainbowPlane
+  - TurtleShell
   layers:
   - Default
   - TransparentFX

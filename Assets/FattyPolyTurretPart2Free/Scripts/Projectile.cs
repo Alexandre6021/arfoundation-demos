@@ -102,7 +102,7 @@ public class Projectile : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.transform.tag == "RedPlane" || other.transform.tag == "GreenPlane" || other.transform.tag == "RainbowPlane")
+        if (other.transform.tag == "RedPlane" || other.transform.tag == "GreenPlane" || other.transform.tag == "RainbowPlane" || other.transform.tag == "TurtleShell")
         {
             switch (other.transform.tag)
             {
@@ -114,6 +114,9 @@ public class Projectile : MonoBehaviour {
                     break;
                 case "RainbowPlane":
                     Spawner.Instance.spawnRainbowPlaneAfterTime(2.0f);
+                    break;
+                case "TurtleShell":
+                    Spawner.Instance.spawnTurtleShellAfterTime(2.0f);
                     break;
                 default:
                     Debug.Log("Problem in Projectile.OnTriggerEnter with tag: " + other.transform.tag);

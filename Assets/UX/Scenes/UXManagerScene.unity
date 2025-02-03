@@ -744,6 +744,8 @@ MonoBehaviour:
     type: 3}
   rainbowPlane: {fileID: 3034886582566731493, guid: 3afe89e69fc208e40b82960c36cfbcc3,
     type: 3}
+  turtleShell: {fileID: 8778631658089925118, guid: 7d6d72cd7ec6ccd42bfe4019f577178e,
+    type: 3}
 --- !u!4 &1793695452
 Transform:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ public class Spawner : MonoBehaviour
     public GameObject redPlane;
     public GameObject greenPlane;
     public GameObject rainbowPlane;
+    public GameObject turtleShell;
 
     //Turret position
     private Vector3 turretPosition;
@@ -74,6 +75,11 @@ public class Spawner : MonoBehaviour
         spawnPlane(rainbowPlane);
     }
 
+    public void spawnTurtleShell()
+    {
+        spawnPlane(turtleShell);
+    }
+
     public void spawnRedPlaneAfterTime(float time)
     {
         Invoke("spawnRedPlane", time);
@@ -87,5 +93,10 @@ public class Spawner : MonoBehaviour
     public void spawnRainbowPlaneAfterTime(float time)
     {
         Invoke("spawnRainbowPlane", time);
+    }
+
+    public void spawnTurtleShellAfterTime(float time)
+    {
+        Invoke("spawnTurtleShell", time);
     }
 }
